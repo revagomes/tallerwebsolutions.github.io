@@ -3,7 +3,7 @@ var gulp = require('gulp')
   , browserSync = require('browser-sync')
 
   , watchMaps = [{
-      source: ['./src/index.html', './src/i18n/**/*'],
+      source: ['./src/*.html', './src/i18n/**/*'],
       tasks: ['index', 'index:structure'],
       name: 'markup'
     }, {
@@ -54,7 +54,8 @@ function taskServe() {
 
   gulp.watch([
     '.tmp/**/*',
-    '!.tmp/**/*.css'
+    '!.tmp/**/*.css',
+    '.tmp/*.html'
   ]).on('change', browserSync.reload);
 }
 

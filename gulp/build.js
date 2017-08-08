@@ -63,6 +63,8 @@ gulp.task('clean:styleguide', cleaner(tmpDir('styleguide/**/*')));
  */
 
 gulp.task('index', ['index:create', 'index:i18n', 'index:inject']);
+gulp.task('courses', ['courses:create']);
+// gulp.task('courses', ['courses:create', 'courses:i18n', 'courses:inject']);
 gulp.task('fonts', copier('./src/fonts/**/*', tmpDir('fonts')));
 gulp.task('images', copier('./src/images/**/*', tmpDir('images')));
 gulp.task('sass', compiler('./src/sass/main.sass'));
@@ -73,9 +75,17 @@ gulp.task('scripts', taskScripts);
  * Index sub-tasks.
  */
 
-gulp.task('index:create', copier('./src/index.html', tmpDir()));
+gulp.task('index:create', copier('./src/*.html', tmpDir()));
 gulp.task('index:inject', ['index:create', 'sass', 'scripts'], taskIndexInject);
 gulp.task('index:i18n', ['index:inject'], taskIndexI18n);
+
+/*
+ * Courses sub-tasks.
+ */
+
+gulp.task('courses:create', copier('./src/courses.html', tmpDir()));
+gulp.task('courses:inject', ['courses:create', 'sass', 'scripts'], taskCoursesInject);
+// gulp.task('courses:i18n', ['courses:inject'], taskCoursesI18n);
 
 /*
  * Static files copy
@@ -170,10 +180,33 @@ function taskIndexStructureInject() {
     .pipe(gulp.dest(tmpDir('structure')));
 }
 
+function taskCoursesInject() {
+  var sources = gulp.src([
+    tmpDir('js/**/*'),
+    tmpDir('css/**/*'),
+  ], { read: false });
+
+  return gulp.src(tmpDir('courses.html'))
+    .pipe(inject(sources, {
+      relative: true,
+      addRootSlash: true
+    }))
+    .pipe(gulp.dest(tmpDir()));
+}
+
+function taskCursesStructureInject() {
+  var injects = gulp.src(tmpDir('structure/css/**/*'), { read: false });
+
+  return gulp.src(tmpDir('structure/courses.html'))
+    .pipe(inject(injects, { relative: true }))
+    .pipe(gulp.dest(tmpDir('structure')));
+}
+
 function taskBuild(done) {
   sequence('clean', [
     // Core build.
     'index'
+  , 'courses'
   //, 'static:cname'
   , 'sass'
   , 'scripts'
