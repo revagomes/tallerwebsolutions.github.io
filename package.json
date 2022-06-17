@@ -28,7 +28,7 @@
   "homepage": "https://github.com/TallerWebSolutions/site-taller#readme",
   "dependencies": {
     "autosize": "^3.0.8",
-    "jquery": "^2.1.4",
+    "jquery": "^3.5.0",
     "jquery-inview": "^1.1.2",
     "jquery-smooth-scroll": "^1.5.5",
     "parsleyjs": "git://github.com/larsonjj/Parsley.js.git#patch-1",
@@ -52,7 +52,7 @@
     "gulp-inject": "^1.5.0",
     "gulp-sass": "^2.0.4",
     "gulp-util": "^3.0.6",
-    "jquery": "^2.1.4",
+    "jquery": "^3.5.0",
     "jsonfile": "^2.2.1",
     "node-sass": "^3.3.3",
     "process-nextick-args": "^1.0.3",
