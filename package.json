@@ -27,14 +27,14 @@
   },
   "homepage": "https://github.com/TallerWebSolutions/site-taller#readme",
   "dependencies": {
-    "autosize": "^3.0.8",
+    "autosize": "^3.0.21",
     "jquery": "^2.1.4",
     "jquery-inview": "^1.1.2",
     "jquery-smooth-scroll": "^1.5.5",
-    "parsleyjs": "git://github.com/larsonjj/Parsley.js.git#patch-1",
+    "parsleyjs": "2.9.2",
     "remodal": "^1.0.2",
     "scrollreveal": "^3.3.2",
-    "vue": "^2.1.10"
+    "vue": "^2.7.16"
   },
   "devDependencies": {
     "async": "^1.4.0",
