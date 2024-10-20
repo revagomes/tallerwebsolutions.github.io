@@ -34,7 +34,7 @@
     "parsleyjs": "git://github.com/larsonjj/Parsley.js.git#patch-1",
     "remodal": "^1.0.2",
     "scrollreveal": "^3.3.2",
-    "vue": "^2.1.10"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "async": "^1.4.0",
